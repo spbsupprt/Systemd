@@ -1,0 +1,36 @@
+---
+- name: nginx for 2 inst
+  hosts: vm1
+  become: true
+
+  tasks:
+    - name: install nginx
+      apt:
+        name: nginx
+        state: latest
+
+    - name: configure nginx
+      template:
+        src: templates/nginx@.service
+        dest: /etc/systemd/system/nginx@.service
+
+    - name: configure nginx
+      template:
+        src: templates/nginx-second.conf
+        dest: /etc/nginx/nginx-second.conf
+        
+    - name: configure spawn-fcgi.service
+      template:
+        src: templates/nginx-first.conf
+        dest: /etc/nginx/nginx-first.conf
+        
+    - name: configure spawn-fcgi
+      shell: systemctl restart nginx@first nginx@second
+        
+      
+  handlers:
+    - name: start nginx
+      systemd:
+        name: nginx
+        state: restart
+        enabled: yes
