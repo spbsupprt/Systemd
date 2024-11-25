@@ -26,9 +26,9 @@
         
     - name: configure spawn-fcgi.service
       template:
-        src: templates/fcgi.conf
-        dest: /etc/spawn-fcgi/fcgi.conf
-
+        src: templates/spawn-fcgi.service
+        dest: /etc/systemd/system/spawn-fcgi.service
+      
   handlers:
     - name: start spawn-fcgi
       systemd:
