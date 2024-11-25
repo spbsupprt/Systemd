@@ -5,6 +5,15 @@
   serial: 5
 
   tasks:
+    - name: Copy log file
+      ansible.builtin.copy:
+        src: src/watchlog.log
+        dest: /var/log/watchlog.log
+        owner: root
+        group: root
+        mode: "0644"
+        
+   tasks:
     - name: Copy Configuration file
       ansible.builtin.copy:
         src: src/watchlog
@@ -14,7 +23,7 @@
         mode: "0644"
 
   tasks:
-    - name: add watchlog.sh
+    - name: Copy scripts watchlog
       ansible.builtin.copy:
         src: src/watchlog.sh
         dest: /opt/watchlog.sh
