@@ -18,6 +18,7 @@ vm1 прописан в .ssh/config
 
 ![image](https://github.com/user-attachments/assets/42802fef-c9a1-4c74-8b66-ad5b9498851f)
 
+https://github.com/spbsupprt/Systemd/blob/main/watchlog.yml
 
 ansible-playbook -i  inventory.ini watchlog.yml
 
