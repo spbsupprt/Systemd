@@ -33,12 +33,13 @@
         dest: /etc/systemd/system/watchlog.timer
 
   handlers:
-    - name: started watchlog
+    - name: start watchlog.timer
       systemd:
-        name: nginx
-        state: started
+        name: watchlog.timer
+        state: start
         enabled: yes
-    - name: reload watchlog
+    - name: start watchlog.service
       systemd:
-        name: watchlog
-        state: reload
+        name: watchlog.service
+        state: start
+        enabled: yes
