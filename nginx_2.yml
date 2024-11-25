@@ -25,7 +25,7 @@
         dest: /etc/nginx/nginx-first.conf
         
     - name: configure spawn-fcgi
-      shell: systemctl restart nginx@first nginx@second
+      shell: systemctl start nginx@first nginx@second
         
       
   handlers:
