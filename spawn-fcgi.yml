@@ -14,11 +14,15 @@
           - apache2
           - libapache2-mod-fcgid
         state: latest
-        
+
+    - name: configure spawn-fcgi
+      shell: mkdir /etc/spawn-fcgi
+    
     - name: configure spawn-fcgi
       template:
         src: templates/fcgi.conf
         dest: /etc/spawn-fcgi/fcgi.conf
+
         
     - name: configure spawn-fcgi.service
       template:
