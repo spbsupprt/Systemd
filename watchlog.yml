@@ -32,6 +32,10 @@
         mode: "0644"
 
   tasks:
+    - name: Stop Service If Running One
+      shell: chmod +x /opt/watchlog.sh
+
+  tasks:
     - name: Copy service
       ansible.builtin.copy:
         src: src/watchlog.service
