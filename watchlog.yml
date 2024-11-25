@@ -31,9 +31,9 @@
       template:
         src: templates/watchlog.timer
         dest: /etc/systemd/system/watchlog.timer
-        
-   - name: Restart watchlog
-         shell: systemctl restart watchlog.timer watchlog.service
+
+    - name: Restart watchlog
+      shell: systemctl restart watchlog.timer watchlog.service
          
   handlers:
     - name: started watchlog
