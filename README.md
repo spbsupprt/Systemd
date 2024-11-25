@@ -10,5 +10,14 @@
 
 # Задание 1:
 
-Все файлы в https://github.com/spbsupprt/Systemd watchlog* кладем в директорию /src и выполняем плейбук watchlog.yml.
+Все файлы в https://github.com/spbsupprt/Systemd watchlog* кладем в директорию templates и выполняем плейбук watchlog.yml.
+Плейбук написан для одного хоста, который ссылается на hosts vm1
 
+
+ansible-playbook -i  inventory.ini watchlog.yml
+
+![image](https://github.com/user-attachments/assets/0fd34447-d713-4076-9b90-57a418d7f1d7)
+
+Делаем проверку сервисов и вывода на хосте:
+
+![image](https://github.com/user-attachments/assets/8fb25ad4-06b1-4b1c-9ded-3be68d460989)
