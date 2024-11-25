@@ -14,17 +14,17 @@
         src: templates/nginx@.service
         dest: /etc/systemd/system/nginx@.service
 
-    - name: configure nginx
+    - name: configure nginx-second
       template:
         src: templates/nginx-second.conf
         dest: /etc/nginx/nginx-second.conf
         
-    - name: configure spawn-fcgi.service
+    - name: configure nginx-first
       template:
         src: templates/nginx-first.conf
         dest: /etc/nginx/nginx-first.conf
         
-    - name: configure spawn-fcgi
+    - name: configure start nginx@
       shell: systemctl start nginx@first nginx@second
         
       
