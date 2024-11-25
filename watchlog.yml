@@ -1,46 +1,44 @@
---
+---
 - name: service that will monitor the registration of an item on a keyword document every 30 seconds
-  hosts: all
-  gather_facts: false
+  hosts: vm1
+  become: true
 
   tasks:
     - name: Copy log file
-      ansible.builtin.copy:
-        src: src/watchlog.log
+      template:
+        src: templates/watchlog.log
         dest: /var/log/watchlog.log
     
-  tasks:
     - name: Copy Configuration file
-      ansible.builtin.copy:
-        src: src/watchlog
+      template:
+        src: templates/watchlog
         dest: /etc/default/watchlog
-
-  tasks:
+        
     - name: Copy scripts watchlog
-      ansible.builtin.copy:
-        src: src/watchlog.sh
+      template:
+        src: templates/watchlog.sh
         dest: /opt/watchlog.sh
 
-  tasks:
     - name: Stop Service If Running One
       shell: chmod +x /opt/watchlog.sh
 
-  tasks:
     - name: Copy service
-      ansible.builtin.copy:
-        src: src/watchlog.service
+      template:
+        src: templates/watchlog.service
         dest: /etc/systemd/system/watchlog.service
 
-  tasks:
     - name: Copy timer
-      ansible.builtin.copy:
-        src: src/watchlog.timer
+      template:
+        src: templates/watchlog.timer
         dest: /etc/systemd/system/watchlog.timer
 
   handlers:
-    - name: Start watchlog
-      ansible.builtin.systemd:
-        name: watchlog
-        enabled: true
+    - name: started watchlog
+      systemd:
+        name: nginx
         state: started
-        daemon_reload: true
+        enabled: yes
+    - name: reload watchlog
+      systemd:
+        name: watchlog
+        state: reloaded
