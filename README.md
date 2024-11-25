@@ -27,3 +27,7 @@ ansible-playbook -i  inventory.ini watchlog.yml
 Делаем проверку сервисов и вывода на хосте:
 
 ![image](https://github.com/user-attachments/assets/8fb25ad4-06b1-4b1c-9ded-3be68d460989)
+
+# Задание 2:
+
+Все файлы в https://github.com/spbsupprt/Systemd watchlog* кладем в директорию templates
