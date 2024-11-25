@@ -41,4 +41,4 @@
     - name: reload watchlog
       systemd:
         name: watchlog
-        state: reloaded
+        state: restart
