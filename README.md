@@ -43,3 +43,22 @@ ansible-playbook -i  inventory.ini watchlog.yml
 Делаем проверку сервисов и вывода на хосте:
 
 ![image](https://github.com/user-attachments/assets/083326bf-e3cb-4d2d-af38-2856aa99bd92)
+
+# Задание 3:
+
+Все файлы в https://github.com/spbsupprt/Systemd nginx* кладем в директорию templates и выполняем плейбук nginx_2.yml
+
+Плейбук написан для одного хоста, который ссылается на inventory.ini vm1
+
+https://github.com/spbsupprt/Systemd/blob/main/nginx_2.yml
+
+ansible-playbook -i inventory.ini nginx_2.yml 
+
+![image](https://github.com/user-attachments/assets/9361fdfc-1af8-4e08-8c19-a6ec5f2137b1)
+
+Делаем проверку сервисов и вывода на хосте:
+
+![image](https://github.com/user-attachments/assets/d43d3597-1823-4e98-a608-9c2e517e801d)
+
+![image](https://github.com/user-attachments/assets/fc4f2419-af92-43d1-9c83-2729739c582a)
+
