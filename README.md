@@ -8,3 +8,7 @@
 
   
 
+# Задание 1:
+
+Все файлы в https://github.com/spbsupprt/Systemd watchlog* кладем в директорию /src и выполняем плейбук watchlog.yml.
+
