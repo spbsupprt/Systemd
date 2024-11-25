@@ -36,13 +36,8 @@
          shell: systemctl restart watchlog.timer watchlog.service
          
   handlers:
-    - name: start watchlog.timer
+    - name: started watchlog
       systemd:
-        name: watchlog.timer
-        state: start
-        enabled: yes
-    - name: start watchlog.service
-      systemd:
-        name: watchlog.service
-        state: start
+        name: watchlog
+        state: started
         enabled: yes
