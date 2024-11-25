@@ -10,4 +10,3 @@ logger "$DATE: I found word, Master!"
 else
 exit 0
 fi
-chmod +x /opt/watchlog.sh
