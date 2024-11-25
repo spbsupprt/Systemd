@@ -30,4 +30,16 @@ ansible-playbook -i  inventory.ini watchlog.yml
 
 # Задание 2:
 
-Все файлы в https://github.com/spbsupprt/Systemd watchlog* кладем в директорию templates
+Файлы в https://github.com/spbsupprt/Systemd fcgi.conf и spawn-fcgi.service кладем в директорию templates
+
+Плейбук написан для одного хоста, который ссылается на inventory.ini vm1
+
+https://github.com/spbsupprt/Systemd/blob/main/spawn-fcgi.yml
+
+ansible-playbook -i  inventory.ini watchlog.yml
+
+![image](https://github.com/user-attachments/assets/acc7fe53-d72a-426f-9d65-ba046adadf8c)
+
+Делаем проверку сервисов и вывода на хосте:
+
+![image](https://github.com/user-attachments/assets/083326bf-e3cb-4d2d-af38-2856aa99bd92)
