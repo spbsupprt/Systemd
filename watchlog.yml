@@ -1,0 +1,53 @@
+---
+- name: service that will monitor the registration of an item on a keyword document every 30 seconds
+  hosts: all
+  gather_facts: false
+  serial: 5
+
+  tasks:
+    - name: Copy Configuration file
+      ansible.builtin.copy:
+        src: src/watchlog
+        dest: /etc/default/watchlog
+        owner: root
+        group: root
+        mode: "0644"
+
+  tasks:
+    - name: add watchlog.sh
+      ansible.builtin.copy:
+        src: src/watchlog.sh
+        dest: /opt/watchlog.sh
+        owner: root
+        group: root
+        mode: "0644"
+
+  tasks:
+    - name: Copy service
+      ansible.builtin.copy:
+        src: src/watchlog.service
+        dest: /etc/systemd/system/watchlog.service
+        owner: root
+        group: root
+        mode: "0644"
+      notify:
+        - Start watchlog
+        
+  tasks:
+    - name: Copy timer
+      ansible.builtin.copy:
+        src: src/watchlog.timer
+        dest: /etc/systemd/system/watchlog.timer
+        owner: root
+        group: root
+        mode: "0644"
+      notify:
+        - Start watchlog
+
+  handlers:
+    - name: Start watchlog
+      ansible.builtin.systemd:
+        name: watchlog
+        enabled: true
+        state: started
+        daemon_reload: true
